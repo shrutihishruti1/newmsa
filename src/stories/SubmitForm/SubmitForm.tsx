@@ -3,9 +3,11 @@ import { TextField, Typography, Grid, Container } from "@material-ui/core";
 import { makeStyles, Theme } from "@material-ui/core/styles";
 import { Button } from "../Button/Button";
 import "./submit-form.css";
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { ADD_CONTENT } from "../../api/mutations";
 import { AddContent } from "../../api/__generated__/AddContent";
+//import { Contents } from "../../api/__generated__/Contents";
+//import { CONTENTS } from "../../api/queries";
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -24,6 +26,7 @@ export const SubmitForm: React.FC<SubmitFormProps> = () => {
   const [description, setDescription] = useState("");
   const [submit, setSubmit] = useState(false);
 
+  //const {loading, error, data} = useQuery<Contents>(CONTENTS)
   const [addContent] = useMutation<AddContent>(ADD_CONTENT)
   
   const isVideoUrl = (value: string) => {
