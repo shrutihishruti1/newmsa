@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { BrowserRouter as Router } from "react-router-dom"
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -8,13 +9,22 @@ import { ApolloProvider } from '@apollo/client';
 import graphQLClient from './GraphQLClient';
 
 ReactDOM.render(
-  <Router>
-  <React.StrictMode>
-    <ApolloProvider client={graphQLClient}>
+  // <Router>
+  // <React.StrictMode>
+  //   <ApolloProvider client={graphQLClient}>
+  //       <App />
+  //       </ApolloProvider>
+  //     </React.StrictMode>
+  //     </Router>,
+
+    <Router>
+      <ApolloProvider client={graphQLClient}>
+          <React.StrictMode>
         <App />
-        </ApolloProvider>
-      </React.StrictMode>
+          </React.StrictMode>
+      </ApolloProvider>
       </Router>,
+
   document.getElementById('root')
 );
 
